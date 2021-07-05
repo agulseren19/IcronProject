@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {faEnvelope,faBars,faUserCircle,faInbox,faStar,faClock,faPaperPlane,faStickyNote } from '@fortawesome/free-solid-svg-icons';
+import { UserComponent } from './user/user.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,4 +16,5 @@ export class AppComponent {
   faClock=faClock;
   faPaperPlane=faPaperPlane;
   faStickyNote=faStickyNote;
+
 }
