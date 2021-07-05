@@ -1,14 +1,14 @@
 export class Email{
-  Id:number;
-  Status:number;
-  Time:Date;
-  SenderId:number;
-  ReceiverId:number;
+  id:number;
+  status:number;
+  time:Date;
+  senderId:number;
+  receiverId:number;
   constructor(){
-    this.Id=1;
-    this.Status=1;
-    this.Time=new Date(1478708162000);
-    this.SenderId=1;
-    this.ReceiverId=1;
+    this.id=1;
+    this.status=1;
+    this.time=new Date(1478708162000);
+    this.senderId=1;
+    this.receiverId=1;
   }
 }
