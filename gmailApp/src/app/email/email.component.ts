@@ -15,6 +15,14 @@ export class EmailComponent implements OnInit {
   message!:number;
   emailList:Email[]=[];
   emailNumber!:number;
+  userFirst!:string;
+  userSecond!:string;
+  userThird!:string;
+  userFourth!:string;
+  userFifth!:string;
+  userSixth!:string;
+
+
 
   constructor(private emailService:EmailService, private userService:UserService, private http:HttpClient){
       this.emailService=emailService;
@@ -25,6 +33,14 @@ export class EmailComponent implements OnInit {
     this.getEmailList();
     this.emailList=this.emailListReturn();
     this.userService.currentMessage.subscribe((mes: number)=>{this.message=mes;});
+    this.userService.currentUserFirst.subscribe((mes: string)=>{this.userFirst=mes;});
+    this.userService.currentUserSecond.subscribe((mes: string)=>{this.userSecond=mes;});
+    this.userService.currentUserThird.subscribe((mes: string)=>{this.userThird=mes;});
+    this.userService.currentUserFourth.subscribe((mes: string)=>{this.userFourth=mes;});
+    this.userService.currentUserFifth.subscribe((mes: string)=>{this.userFifth=mes;});
+    this.userService.currentUserSixth.subscribe((mes: string)=>{this.userSixth=mes;});
+
+
   }
   getEmailList():void{
        this.emailService.getEmails().subscribe(email=>{
@@ -60,5 +76,6 @@ export class EmailComponent implements OnInit {
 
      return this.emailList;
   }
+
 
 }
