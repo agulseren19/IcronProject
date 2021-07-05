@@ -1,0 +1,26 @@
+<button (click)=" getEmailListId(message)" >Enter
+</button>
+<ul class="list-group ">
+  <li class=" list-group-item unread bg-light ">
+    <div class="row ">
+      <div class="col-2 ">SenderId</div>
+      <div class="col-sm-12 col-md-4 pl-5">Status</div>
+      <div style="margin-left: auto;" class="col-sm-3 col-md-3 pl-4">Time</div>
+    </div>
+
+    <ul *ngFor="let item of emailListReturn()">
+      <div class="row ">
+        <div class="col-2 ">{{item.senderId}}</div>
+        <div class="col-sm-12 col-md-2" [ngSwitch]="item.status">
+          <span *ngSwitchCase="0">UnRead</span>
+          <span *ngSwitchCase="1">Read</span>
+          <span *ngSwitchCase="2">Starred</span>
+        </div>
+        <div style="margin-left: auto;" class="col-sm-3 col-md-3">{{item.time}}
+        </div>
+
+      </div>
+    </ul>
+  </li>
+</ul>
+<p>{{message}}</p>
