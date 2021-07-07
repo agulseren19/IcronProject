@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class EmailService {
-  private messageSource=new BehaviorSubject<number>(0);
+  private messageSource=new BehaviorSubject<string>('');
   currentMessage=this.messageSource.asObservable();
   constructor(private http:HttpClient) {
     this.getEmails();
@@ -20,11 +20,13 @@ getEmails():Observable<Email[]>{
 
 }
 getEmailsId(id:number):Observable<Email[]>{
-  return this.http.get<Email[]>('http://localhost:4200/api/email'+'/'+id+'/sent');
-
+  return this.http.get<Email[]>('http://localhost:4200/api/email'+'/'+id+'/received');
 }
-changeMessage(message:number){
+getEmailsIdSent(id:number):Observable<Email[]>{
+  return this.http.get<Email[]>('http://localhost:4200/api/email'+'/'+id+'/sent');
+}
+changeMessage(message:string){
   this.messageSource.next(message);
      }
-     
+
 }
