@@ -1,6 +1,7 @@
-<input class="form-inline" placeholder="User number" #listText [(ngModel)]="userNumber">
-<button (click)=" getUserListId(listText.value)" >Enter
+<input class="form-inline" placeholder="User name" #listText [(ngModel)]="userNumber">
+<button (click)=" getUserListId(listText.value)" >Login
 </button>
+<div>{{makeFalse()}}</div>
 <div *ngIf="selectedUser">
 <p>{{selectedUser.email}}</p>
 </div>

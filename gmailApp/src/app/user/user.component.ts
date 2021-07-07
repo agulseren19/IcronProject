@@ -1,43 +1,35 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit, Output } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { MailUser } from 'MailUser';
 import { UserService } from '../user.service';
 import {AppComponent} from '../app.component';
 import { EmailService } from '../email.service';
+import {UserToEmailService} from '../user-to-email.service'
 @Component({
   selector: 'appuser',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  message!:number;
-  userFirst!:string;
-  selectedUser!:MailUser;
   userList:MailUser[]=[];
-  userSecond!:string;
-  userThird!:string;
-  userFourth!:string;
-  userFifth!:string;
-  userSixth!:string;
-
-  userNumber!:number;
-  constructor(private emailService:EmailService,private userService:UserService, private http:HttpClient){
+  message!:string;
+  isClicked:string="0";
+  selectedUser!:MailUser;
+  permanentList:MailUser[]=[];
+  userNumber!:string;
+  constructor(private emailService:EmailService,private userService:UserService, private http:HttpClient,private userToEmailService:UserToEmailService){
       this.userService=userService;
       this.emailService=emailService;
+      this.userToEmailService=userToEmailService;
   }
 
   ngOnInit(): void {
      this.getUserListId('');
-     this.userService.currentMessage.subscribe((mes: number)=>{this.message=mes;});
-     this.userService.currentUserFirst.subscribe((mes: string)=>{this.userFirst=mes;});
-     this.userService.currentUserSecond.subscribe((mes: string)=>{this.userSecond=mes;});
-     this.userService.currentUserThird.subscribe((mes: string)=>{this.userThird=mes;});
-     this.userService.currentUserFourth.subscribe((mes: string)=>{this.userFourth=mes;});
-     this.userService.currentUserFifth.subscribe((mes: string)=>{this.userFifth=mes;});
-     this.userService.currentUserSixth.subscribe((mes: string)=>{this.userSixth=mes;});
-
+     this.userService.currentMessage.subscribe((mes: string)=>{this.message=mes;});
      // this.userList=this.userListReturn();
+     this.userService.currentMessageClick.subscribe((mess: string)=>{this.isClicked=mess;});
+
   }
   /*
   getUserList():void{
@@ -56,24 +48,21 @@ export class UserComponent implements OnInit {
     return this.userList;
   }
 
-  getUserListId(idString:string):MailUser[]{
+  getUserListId(idS:string):MailUser[]{
+    this.userService.changeMessageClick("1");
     this.userList=[];
-    if(idString.length==0){
+    if(idS.length==0){
         this.userService.getUsers().subscribe(use=>{
           for(let n = 0; n < use.length; n++){
-            this.userService.changeFirstSourceMessage(use[0].name+' '+use[0].surname);
-            this.userService.changeSecondSourceMessage(use[1].name+' '+use[1].surname);
-            this.userService.changeThirdSourceMessage(use[2].name+' '+use[2].surname);
-            this.userService.changeFourthSourceMessage(use[3].name+' '+use[3].surname);
-            this.userService.changeFifthSourceMessage(use[4].name+' '+use[4].surname);
-            this.userService.changeSixthSourceMessage(use[5].name+' '+use[5].surname);
-
             var em=new MailUser();
             em=use[n];
             this.userList.push(em);
+            this.permanentList.push(em);
          }});
+         this.userToEmailService.setUserList(this.userList);
     }
     else{
+      var idString=''+this.getUserNumber(idS);
     var id:number;
     id=parseInt(idString);
     this.userService.getUsersId(id).subscribe(use=>{
@@ -81,8 +70,24 @@ export class UserComponent implements OnInit {
     })
   }
    // console.log(this.userList);
-   this.userService.changeMessage(this.userNumber);
+   this.userService.changeMessage(idS);
+   //this.userService.changeMessageClick('0');
     return this.userList;
   }
 
+  getUserNumber(name:string):number{
+    var list=this.permanentList;
+    var returnnum=0;
+    for(let n = 0; n < list.length; n++){
+     var em= list[n];
+      if((em.name+' '+em.surname).localeCompare(name)==0){
+        returnnum= n+1;
+      }
+  }
+  return returnnum;
+
+}
+makeFalse(){
+     this.userService.changeMessageClick('0');
+}
 }
