@@ -13,15 +13,14 @@
 <body>
 <header>
     <nav class="navbar navbar-expand-sm fixed-top " style="background: white">
-        <button class="m-3">
-                <fa-icon [icon]="faBars" class=" m-3"></fa-icon>
+        <button class="m-3 d-none d-md-block">
+                <fa-icon [icon]="faBars" class=" m-2 d-none d-md-block"></fa-icon>
         </button>
-        <fa-icon [icon]="faEnvelope" class=" m-3"></fa-icon>
-        <h1 class="m-3">Gmail</h1>
-        <button class="pl-5 btn"><i class="fas fa-search"></i></button>
+        <fa-icon [icon]="faEnvelope" class=" m-3 d-none d-md-block"></fa-icon>
+        <h1 class="m-3  d-none d-md-block" style="float:left">Gmail</h1>
         <form class=" w-100">
             <label class="w-75">
-                <input class=" form-control" type="search" placeholder="Search mail">
+                <input class=" form-control d-none d-md-block" type="search" placeholder="Search mail">
             </label>
         </form>
                  <appuser></appuser>
@@ -29,22 +28,28 @@
     </nav>
 </header>
 <main>
-    <div class="row" style="margin-top: 120px">
+    <div class="row" style="margin-top: 130px">
         <div class="col-md-2 affix">
             <div class="btn-group-vertical w-100" style=" position:fixed">
-                <button class="btn btn-light w-100 rounded text-left " type="button" onclick="goHome()">Inbox
+                <button class="btn btn-light w-100 rounded text-left " type="button" >
                         <fa-icon [icon]="faInbox" class=" mr-2" style="color:gray;float:left"></fa-icon>
+                        <a routerLink="/inbox">Inbox</a>
                         </button>
-                <button class="w-100 rounded text-left btn btn-light " type="button" onclick="goNew()">Starred
+                <button class="w-100 rounded text-left btn btn-light " type="button">
                         <fa-icon [icon]="faStar" class=" mr-2" style="color:gray;float:left"></fa-icon>
+                        <a routerLink="/drafts">Starred</a>
                 </button>
-                <button class="w-100 rounded text-left btn btn-light " type="button" onclick="goNew()">Snoozed
-                        <fa-icon [icon]="faClock" class=" mr-2" style="color:gray;float:left"></fa-icon></button>
-                <button class="w-100 rounded text-left btn btn-light " type="button" onclick="goNew()">Sent
-                        <fa-icon [icon]="faPaperPlane" class=" mr-2" style="color:gray;float:left"></fa-icon></button>
-                <button class="w-100 rounded text-left btn btn-light " type="button" onclick="goNew()">Drafts
-                        <fa-icon [icon]="faStickyNote" class=" mr-2" style="color:gray;float:left"></fa-icon></button>
-                <button class="w-100 rounded text-left more btn btn-light " type="button">More</button>
+                <button class="w-100 rounded text-left btn btn-light " type="button" >
+                        <fa-icon [icon]="faClock" class=" mr-2" style="color:gray;float:left"></fa-icon>
+                        <a routerLink="/snoozed">Snoozed</a></button>
+                <button class="w-100 rounded text-left btn btn-light " type="button">
+                        <fa-icon [icon]="faPaperPlane" class=" mr-2" style="color:gray;float:left"></fa-icon>
+                                                <a routerLink="/sent">Sent</a></button>
+                <button class="w-100 rounded text-left btn btn-light " type="button" >
+                        <fa-icon [icon]="faStickyNote" class=" mr-2" style="color:gray;float:left"></fa-icon>
+                        <a routerLink="/drafts">Drafts</a>
+                        </button>
+                <button class="w-100 rounded text-left more btn btn-light " type="button" >More</button>
                 <button class="w-100 rounded text-left more appear btn btn-light " type="button"
                         style="display:none">Important
                 </button>
@@ -54,28 +59,12 @@
             </div>
         </div>
         <div class=" col-sm-12 col-md-10 bg-light">
-                    <appemail></appemail>
+        <router-outlet></router-outlet>
         </div>
     </div>
 
 </main>
 <script>
-
-    $(document).ready(function () {
-
-        $(".more").click(function () {
-            $(".appear").toggle("fast");
-        });
-    });
-        function goNew()
-        {
-            location.href = "../gmail/others.html";
-        }
-    function goHome()
-    {
-        location.href = "../gmail/home.html";
-    }
-
 </script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
