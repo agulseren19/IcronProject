@@ -10,12 +10,14 @@ import { EmailComponent } from './email/email.component';
 import { FormsModule } from '@angular/forms';
 import { UserComponent } from './user/user.component';
 import { BlankComponent } from './blank/blank.component';
+import { SentEmailComponent } from './sent-email/sent-email.component';
 @NgModule({
   declarations: [
     AppComponent,
     EmailComponent,
     UserComponent,
-    BlankComponent
+    BlankComponent,
+    SentEmailComponent
   ],
   imports: [
     BrowserModule,
