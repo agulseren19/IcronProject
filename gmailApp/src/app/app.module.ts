@@ -9,11 +9,13 @@ import { faEnvelope, fas,faBars,faUserCircle } from '@fortawesome/free-solid-svg
 import { EmailComponent } from './email/email.component';
 import { FormsModule } from '@angular/forms';
 import { UserComponent } from './user/user.component';
+import { BlankComponent } from './blank/blank.component';
 @NgModule({
   declarations: [
     AppComponent,
     EmailComponent,
-    UserComponent
+    UserComponent,
+    BlankComponent
   ],
   imports: [
     BrowserModule,
