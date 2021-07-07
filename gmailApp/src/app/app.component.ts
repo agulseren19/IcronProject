@@ -17,6 +17,9 @@ export class AppComponent {
       });
   });
   }*/
+  ngOnInit(){
+    
+  }
   title = 'gmailApp';
   faEnvelope = faEnvelope;
   faBars=faBars;
