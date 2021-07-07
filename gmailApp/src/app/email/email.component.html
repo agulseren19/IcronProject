@@ -1,30 +1,24 @@
-<button (click)=" getEmailListId(message)" >Filter
-</button>
+<div>{{getEmailListId(getUserNumber(message))}}
+</div>
 <ul class="list-group ">
   <li class=" list-group-item unread bg-light ">
     <div class="row p-2">
-      <div class="col-2 pl-5">Sender
+      <div class="col-3 pl-5  d-none d-md-block">Sender
       </div>
-      <div class="col-sm-1 col-md-4 pl-5">Status</div>
-      <div style="margin-left: auto;" class="col-sm-3 col-md-3 pl-4">Time</div>
+      <div class="col-sm-1 col-md-4 pl-5 d-none d-md-block ">Status</div>
+      <div style=" margin-left: auto;" class="col-sm-3 col-md-3 pl-4 d-none d-md-block">Time</div>
     </div>
+
     <ul *ngFor="let item of emailListReturn()">
       <div class="row p-2 ">
-        <div class="col-2 " [ngSwitch]="item.senderId">
-          <span *ngSwitchCase="1">{{userFirst}}</span>
-          <span *ngSwitchCase="2">{{userSecond}}</span>
-          <span *ngSwitchCase="3">{{userThird}}</span>
-          <span *ngSwitchCase="4">{{userFourth}}</span>
-          <span *ngSwitchCase="5">{{userFifth}}</span>
-          <span *ngSwitchCase="6">{{userSixth}}</span>
-
-       </div>
-        <div class="col-sm-12 col-md-2" [ngSwitch]="item.status">
+        <div class="col-3 ">{{getUserFullName(item.senderId)}}
+          </div>
+        <div class="d-none d-md-block col-md-2" [ngSwitch]="item.status">
           <span *ngSwitchCase="0" style="color:red">UnRead</span>
           <span *ngSwitchCase="1">Read</span>
           <span *ngSwitchCase="2" style="color:blue">Starred</span>
         </div>
-        <div style="margin-left: auto;" class="col-sm-3 col-md-3">{{item.time}}
+        <div style="margin-left: auto;" class="d-none d-md-block col-sm-3 col-md-3"><time>{{getDate(item.time)}}</time>
         </div>
 
       </div>
