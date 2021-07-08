@@ -11,9 +11,12 @@ const {app, BrowserWindow,Menu,MenuItem, shell} = require('electron')
         height: 600,
         minWidth:350,
         minHeight:355,
+        titleBarStyle: 'hidden',
         webPreferences: {
-          nodeIntegration: true
+          nodeIntegration: true,
+          enableRemoteModule:true
         }
+
       })
 
       mainWindow.loadURL(
@@ -53,7 +56,18 @@ const {app, BrowserWindow,Menu,MenuItem, shell} = require('electron')
           {
             label:"Real Gmail",
             click(){shell.openExternal("http://gmail.com/")}
-          }
+          },
+          {
+          label: "Preferences",
+          accelerator: 'cmd+,',
+          click() {
+                  const htmlPath = path.join('file://', __dirname, './preferences.html')
+                  let prefWindow = new BrowserWindow({ width: 500, height: 300, resizable: false })
+                  prefWindow.loadURL(htmlPath)
+                  prefWindow.show()
+                  // on window closed
+              },
+            },
         ]
       }
     ])
@@ -84,5 +98,3 @@ const {app, BrowserWindow,Menu,MenuItem, shell} = require('electron')
     app.on('activate', function () {
       if (mainWindow === null) createWindow()
     })
-
-
