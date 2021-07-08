@@ -11,19 +11,30 @@
     <div id="content" >
         <form action="">
             <button id="defaultValues">Reset</button>
+            <button id="submit"  type="button">Save</button>
             <p><span>Background Color</span> <label for="background"></label> <span>
-                <input type="text" name="background" value="#FFFFFF"></span>
+                <input type="text" name="background" class="inputGet"></span>
             </p>
              <p><span>Text Color</span> <label for="textcolor"></label> <span>
-                <input type="text" name="textcolor" value="#FFFFFF"></span>
+                <input type="text" name="textcolor"  class="inputGet"></span>
             </p>
              <p><span>Server</span> <label for="serverLink"></label> <span>
-                <input type="text" name="serverLink" value="http://localhost:4200/"></span>
+                <input type="text" name="serverLink"  class="inputGet"></span>
             </p>
             </form>
-    </div>
-    </div>
-        <script src="scripts/preferences.js"></script>
 
+
+    </div>
+    </div>
+    <script>
+   /*  querySelector('#submit').addEventListener('click', function() {
+
+                    let address = document.getElementById("address").value;
+
+                    // send username to main.js
+                    ipcRenderer.send('asynchronous-message', address )
+                    });
+                    */
+      </script>
 </body>
 </html>

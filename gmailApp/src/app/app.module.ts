@@ -11,13 +11,15 @@ import { FormsModule } from '@angular/forms';
 import { UserComponent } from './user/user.component';
 import { BlankComponent } from './blank/blank.component';
 import { SentEmailComponent } from './sent-email/sent-email.component';
+import { PreferencesComponent } from './preferences/preferences.component';
 @NgModule({
   declarations: [
     AppComponent,
     EmailComponent,
     UserComponent,
     BlankComponent,
-    SentEmailComponent
+    SentEmailComponent,
+    PreferencesComponent
   ],
   imports: [
     BrowserModule,

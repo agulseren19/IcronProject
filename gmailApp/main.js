@@ -1,4 +1,4 @@
-const {app, BrowserWindow,Menu,MenuItem, shell} = require('electron')
+const {app, BrowserWindow,Menu,MenuItem, shell,ipcRenderer,ipcMain} = require('electron')
     const url = require("url");
     const path = require("path");
     let mainWindow
@@ -27,7 +27,7 @@ const {app, BrowserWindow,Menu,MenuItem, shell} = require('electron')
         })
       );
       // Open the DevTools.
-      mainWindow.webContents.openDevTools()
+     // mainWindow.webContents.openDevTools()
 
       mainWindow.on('closed', function () {
         mainWindow = null
@@ -61,21 +61,47 @@ const {app, BrowserWindow,Menu,MenuItem, shell} = require('electron')
           label: "Preferences",
           accelerator: 'cmd+,',
           click() {
-                  const htmlPath = path.join('file://', __dirname, './preferences.html')
-                  let prefWindow = new BrowserWindow({ width: 500, height: 300, resizable: false })
-                  prefWindow.loadURL(htmlPath)
+            const htmlPath = path.join('file://', __dirname, './src/app/preferences/preferences.component.html')
+            let prefWindow = new BrowserWindow({ width: 500, height: 300, resizable: false })
+            prefWindow.loadURL(htmlPath)
                   prefWindow.show()
+
+/*
+                  prefWindow.on('close', function () {
+
+                    prefWindow = null
+                    userDataPath = app.getPath('userData');
+                    filePath = path.join(userDataPath, 'preferences.json')
+                    inputs && fs.writeFileSync(filePath, JSON.stringify(inputs));
+                    mainWindow.webContents.send('submitted-form', inputs);
+                    console.log(inputs);
+
+                })*/
                   // on window closed
               },
             },
         ]
       }
     ])
+    /*
+    let preferences = {};
+    for(var i = 0 ; i < inputs.length; i++){
+      preferences[inputs[i].name] = inputs[i].value
+      inputs[i].onkeyup = e => {
+          preferences[e.target.name] = e.target.value
 
+          ipcRenderer.send(PREFERENCE_SAVE_DATA_NEEDED, preferences)
+      }
+  }
+  ipcMain.on(PREFERENCE_SAVE_DATA_NEEDED, (event, preferences) => {
+    inputs = preferences
+})
+*/
     app.whenReady().then(()=>{
       if(process.platform=='darwin'){
         app.dock.setMenu(dockMenu)
       }
+
     }).then(createWindow).then(showNotification);
 //Context menu
     /*
@@ -98,3 +124,6 @@ const {app, BrowserWindow,Menu,MenuItem, shell} = require('electron')
     app.on('activate', function () {
       if (mainWindow === null) createWindow()
     })
+
+    ipcMain.on('asynchronous-message', (event, arg) => {
+      console.log( arg ); });
