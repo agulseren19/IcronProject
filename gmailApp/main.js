@@ -13,7 +13,7 @@ const {app, BrowserWindow,Menu,MenuItem, shell,ipcRenderer,ipcMain} = require('e
         minHeight:355,
         titleBarStyle: 'hidden',
         webPreferences: {
-          nodeIntegration: true,
+          nodeIntegration: false,
           enableRemoteModule:false, //true
           preload: path.join(__dirname, "preload.js") // use a preload script
         }
@@ -28,7 +28,7 @@ const {app, BrowserWindow,Menu,MenuItem, shell,ipcRenderer,ipcMain} = require('e
         })
       );
       // Open the DevTools.
-     mainWindow.webContents.openDevTools()
+ //    mainWindow.webContents.openDevTools()
 
       mainWindow.on('closed', function () {
         mainWindow = null
