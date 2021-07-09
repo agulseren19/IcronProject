@@ -14,7 +14,8 @@ const {app, BrowserWindow,Menu,MenuItem, shell,ipcRenderer,ipcMain} = require('e
         titleBarStyle: 'hidden',
         webPreferences: {
           nodeIntegration: true,
-          enableRemoteModule:true
+          enableRemoteModule:false, //true
+          preload: path.join(__dirname, "preload.js") // use a preload script
         }
 
       })
@@ -27,7 +28,7 @@ const {app, BrowserWindow,Menu,MenuItem, shell,ipcRenderer,ipcMain} = require('e
         })
       );
       // Open the DevTools.
-     // mainWindow.webContents.openDevTools()
+     mainWindow.webContents.openDevTools()
 
       mainWindow.on('closed', function () {
         mainWindow = null
@@ -81,6 +82,10 @@ const {app, BrowserWindow,Menu,MenuItem, shell,ipcRenderer,ipcMain} = require('e
               },
             },
         ]
+      },{
+        label:'Help',
+        click(){shell.openExternal("http://gmail.com/")}
+
       }
     ])
     /*
@@ -127,3 +132,28 @@ const {app, BrowserWindow,Menu,MenuItem, shell,ipcRenderer,ipcMain} = require('e
 
     ipcMain.on('asynchronous-message', (event, arg) => {
       console.log( arg ); });
+    Menu.setApplicationMenu(dockMenu)
+/*
+    const saveHtml = exports.saveHtml = (targetWindow, content) => {
+      const file = dialog.showSaveDialog(targetWindow, {
+        title: 'Save HTML',
+        defaultPath: app.getAppPath(),
+        filters: [
+          { name: 'HTML Files', extensions: ['html', 'htm'] }
+        ]
+      });
+
+      if (!file) return;
+
+      fs.writeFileSync(file, content);
+    };
+*/
+
+const iconName = path.join(__dirname, 'iconForDragAndDrop.png');
+ipcMain.on('ondragstart', (event, filePath) => {
+  event.sender.startDrag({
+    file: filePath,
+    icon: iconName
+  })
+})
+
