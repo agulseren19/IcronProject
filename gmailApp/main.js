@@ -4,7 +4,9 @@ const {app, BrowserWindow,Menu,MenuItem, shell,ipcRenderer,ipcMain} = require('e
     let mainWindow
    // const menuNew=require('electron').Menu;
     //const menuNewItem=require('electron').MenuItem;
-
+    let os = require('os')
+    console.log(os.userInfo());
+  
     function createWindow () {
       mainWindow = new BrowserWindow({
         width: 800,
@@ -156,4 +158,6 @@ ipcMain.on('ondragstart', (event, filePath) => {
     icon: iconName
   })
 })
+
+//session.defaultSession.allowNTLMCredentialsForDomains('*');
 
