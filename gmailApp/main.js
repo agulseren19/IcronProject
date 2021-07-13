@@ -1,12 +1,13 @@
 const {app, BrowserWindow,Menu,MenuItem, shell,ipcRenderer,ipcMain} = require('electron')
     const url = require("url");
     const path = require("path");
+    //const electronInstaller = require('electron-winstaller');
     let mainWindow
    // const menuNew=require('electron').Menu;
     //const menuNewItem=require('electron').MenuItem;
     let os = require('os')
     console.log(os.userInfo());
-  
+    let userinf=String(os.userInfo().username);
     function createWindow () {
       mainWindow = new BrowserWindow({
         width: 800,
@@ -30,7 +31,7 @@ const {app, BrowserWindow,Menu,MenuItem, shell,ipcRenderer,ipcMain} = require('e
         })
       );
       // Open the DevTools.
- //    mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools()
 
       mainWindow.on('closed', function () {
         mainWindow = null
@@ -39,7 +40,7 @@ const {app, BrowserWindow,Menu,MenuItem, shell,ipcRenderer,ipcMain} = require('e
     //Notification
     const { Notification } = require('electron')
 
-    const NOTIFICATION_TITLE = 'Welcome'
+    const NOTIFICATION_TITLE = 'Welcome'+''+userinf
     const NOTIFICATION_BODY = 'Welcome to Gmail!'
 
     function showNotification () {
@@ -160,4 +161,22 @@ ipcMain.on('ondragstart', (event, filePath) => {
 })
 
 //session.defaultSession.allowNTLMCredentialsForDomains('*');
+/*
+async function createWindowsExe(){
+  try {
+    await electronInstaller.createWindowsInstaller({
+      appDirectory: '/tmp/build/my-app-64',
+      outputDirectory: '/tmp/build/installer64',
+      authors: 'Aslihan Gulseren.',
+      exe: 'gmailApp.exe'
+    });
+    console.log('It worked!');
+  } catch (e) {
+    console.log(`No dice: ${e.message}`);
+  }
+}
+*/
+// NB: Use this syntax within an async function, Node does not have support for
+//     top-level await as of Node 12.
+
 
