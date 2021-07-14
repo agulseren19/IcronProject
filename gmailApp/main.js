@@ -6,7 +6,6 @@ const {app, BrowserWindow,Menu,MenuItem, shell,ipcRenderer,ipcMain} = require('e
    // const menuNew=require('electron').Menu;
     //const menuNewItem=require('electron').MenuItem;
     let os = require('os')
-    console.log(os.userInfo());
     let userinf=String(os.userInfo().username);
     function createWindow () {
       mainWindow = new BrowserWindow({
@@ -16,8 +15,9 @@ const {app, BrowserWindow,Menu,MenuItem, shell,ipcRenderer,ipcMain} = require('e
         minHeight:355,
         titleBarStyle: 'hidden',
         webPreferences: {
-          nodeIntegration: false,
+          nodeIntegration: true,
           enableRemoteModule:false, //true
+          //contextIsolation: false,
           preload: path.join(__dirname, "preload.js") // use a preload script
         }
 
@@ -40,14 +40,16 @@ const {app, BrowserWindow,Menu,MenuItem, shell,ipcRenderer,ipcMain} = require('e
     //Notification
     const { Notification } = require('electron')
 
-    const NOTIFICATION_TITLE = 'Welcome'+''+userinf
+    const NOTIFICATION_TITLE = 'Welcome'+' '+userinf
     const NOTIFICATION_BODY = 'Welcome to Gmail!'
 
     function showNotification () {
       new Notification({ title: NOTIFICATION_TITLE, body: NOTIFICATION_BODY }).show()
     }
+    ipcMain.on("notification-show", (event, arg) => {
+      new Notification({ title: arg, body: 'You are '+arg }).show()
 
-   // app.whenReady().then(createWindow).then(showNotification)
+    })   // app.whenReady().then(createWindow).then(showNotification)
   //dockMenu
     const dockMenu=Menu.buildFromTemplate([
       {
