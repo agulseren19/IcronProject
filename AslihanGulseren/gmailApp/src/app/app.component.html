@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Gmail">
+    <meta name="keywords" content="gmail,mail,inbox,google">
+    <title>Inbox-aslihangulseren00@gmail.com</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/2e453130e2.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-sm fixed-top " style="background: white">
+        <button class="m-3 d-none d-md-block">
+                <fa-icon [icon]="faBars" class=" m-2 d-none d-md-block"></fa-icon>
+        </button>
+        <fa-icon [icon]="faEnvelope" class=" m-3 d-none d-md-block"></fa-icon>
+        <h1 class="m-3  d-none d-md-block" style="float:left">Gmail</h1>
+        <form class=" w-100">
+            <label class="w-75">
+                <input class=" form-control d-none d-md-block" type="search" placeholder="Search mail">
+            </label>
+        </form>
+                 <appuser></appuser>
+        <fa-icon [icon]="faUserCircle" class="fa-4x" style="margin-left: auto; color:red"></fa-icon>
+    </nav>
+</header>
+<main>
+    <div class="row" style="margin-top: 130px">
+        <div class="col-md-2 affix">
+            <div class="btn-group-vertical w-100" style=" position:fixed">
+                <button class="btn btn-light w-100 rounded text-left " type="button" >
+                        <fa-icon [icon]="faInbox" class=" mr-2" style="color:gray;float:left"></fa-icon>
+                        <a routerLink="/inbox">Inbox</a>
+                        </button>
+                <button class="w-100 rounded text-left btn btn-light " type="button">
+                        <fa-icon [icon]="faStar" class=" mr-2" style="color:gray;float:left"></fa-icon>
+                        <a routerLink="/drafts">Starred</a>
+                </button>
+                <button class="w-100 rounded text-left btn btn-light " type="button" >
+                        <fa-icon [icon]="faClock" class=" mr-2" style="color:gray;float:left"></fa-icon>
+                        <a routerLink="/snoozed">Snoozed</a></button>
+                <button class="w-100 rounded text-left btn btn-light " type="button">
+                        <fa-icon [icon]="faPaperPlane" class=" mr-2" style="color:gray;float:left"></fa-icon>
+                                                <a routerLink="/sent">Sent</a></button>
+                <button class="w-100 rounded text-left btn btn-light " type="button" >
+                        <fa-icon [icon]="faStickyNote" class=" mr-2" style="color:gray;float:left"></fa-icon>
+                        <a routerLink="/drafts">Drafts</a>
+                        </button>
+                <button class="w-100 rounded text-left more btn btn-light " type="button" >More</button>
+                <button class="w-100 rounded text-left more appear btn btn-light " type="button"
+                        style="display:none">Important
+                </button>
+                <button class="w-100 rounded text-left more appear btn btn-light menuGroup" type="button"
+                        style="display:none">Chats
+                </button>
+            </div>
+        </div>
+        <div class=" col-sm-12 col-md-10 bg-light">
+        <router-outlet></router-outlet>
+        </div>
+    </div>
+
+</main>
+<script>
+</script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+</body>
+</html>

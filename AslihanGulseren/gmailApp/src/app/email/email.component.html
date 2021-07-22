@@ -1,0 +1,27 @@
+<div>{{getEmailListId(getUserNumber(message))}}
+</div>
+<ul class="list-group ">
+  <li class=" list-group-item unread bg-light ">
+    <div class="row p-2">
+      <div class="col-3 pl-5  d-none d-md-block">Sender
+      </div>
+      <div class="col-sm-1 col-md-4 pl-5 d-none d-md-block ">Status</div>
+      <div style=" margin-left: auto;" class="col-sm-3 col-md-3 pl-4 d-none d-md-block">Time</div>
+    </div>
+
+    <ul *ngFor="let item of emailListReturn()">
+      <div class="row p-2 ">
+        <div class="col-3 ">{{getUserFullName(item.senderId)}}
+          </div>
+        <div class="d-none d-md-block col-md-2" [ngSwitch]="item.status">
+          <span *ngSwitchCase="0" style="color:red">UnRead</span>
+          <span *ngSwitchCase="1">Read</span>
+          <span *ngSwitchCase="2" style="color:blue">Starred</span>
+        </div>
+        <div style="margin-left: auto;" class="d-none d-md-block col-sm-3 col-md-3"><time>{{getDate(item.time)}}</time>
+        </div>
+
+      </div>
+    </ul>
+  </li>
+</ul>
