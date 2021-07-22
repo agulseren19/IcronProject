@@ -71,19 +71,6 @@ const {app, BrowserWindow,Menu,MenuItem, shell,ipcRenderer,ipcMain} = require('e
             let prefWindow = new BrowserWindow({ width: 500, height: 300, resizable: false })
             prefWindow.loadURL(htmlPath)
                   prefWindow.show()
-
-/*
-                  prefWindow.on('close', function () {
-
-                    prefWindow = null
-                    userDataPath = app.getPath('userData');
-                    filePath = path.join(userDataPath, 'preferences.json')
-                    inputs && fs.writeFileSync(filePath, JSON.stringify(inputs));
-                    mainWindow.webContents.send('submitted-form', inputs);
-                    console.log(inputs);
-
-                })*/
-                  // on window closed
               },
             },
         ]
@@ -128,11 +115,13 @@ const {app, BrowserWindow,Menu,MenuItem, shell,ipcRenderer,ipcMain} = require('e
     }})
 */
     app.on('window-all-closed', function () {
-      if (process.platform !== 'darwin') app.quit()
+      //if (process.platform !== 'darwin')
+      app.quit()
     })
 
     app.on('activate', function () {
-      if (mainWindow === null) createWindow()
+      //if (mainWindow === null)
+      createWindow()
     })
 
     ipcMain.on('asynchronous-message', (event, arg) => {

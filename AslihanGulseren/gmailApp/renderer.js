@@ -1,4 +1,3 @@
-
 if(document.querySelector('#drag')!=undefined){
 document.querySelector('#drag').ondragstart = (event) => {
   event.preventDefault()
@@ -24,9 +23,7 @@ window.addEventListener('offline', updateOnlineStatus)
 updateOnlineStatus()
 */
 function updateO () {
-  if( document.getElementById('status')!=null){
     window.electronn.updateOnlineStatus(navigator.onLine ? 'online' : 'offline')
-  }
 }
 
 
