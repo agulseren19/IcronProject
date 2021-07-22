@@ -13,7 +13,7 @@ const {app, BrowserWindow,Menu,MenuItem, shell,ipcRenderer,ipcMain} = require('e
         height: 600,
         minWidth:350,
         minHeight:355,
-        titleBarStyle: 'hidden',
+        //titleBarStyle: 'hidden',
         webPreferences: {
           nodeIntegration: true,
           enableRemoteModule:false, //true
@@ -31,7 +31,7 @@ const {app, BrowserWindow,Menu,MenuItem, shell,ipcRenderer,ipcMain} = require('e
         })
       );
       // Open the DevTools.
-    mainWindow.webContents.openDevTools()
+  //  mainWindow.webContents.openDevTools()
 
       mainWindow.on('closed', function () {
         mainWindow = null
