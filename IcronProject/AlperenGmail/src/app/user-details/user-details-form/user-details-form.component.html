@@ -1,0 +1,14 @@
+<div style="border: 2px solid;">
+<form class="display-6 text-center">
+    <input type="hidden" name="emailID" [value]="service.formData.userID">
+    <div class="form-row">
+        <div class="form-group">
+            <label>Welcome to Gmail</label>
+            <br>
+            <label>Email Address</label>
+            <input class="form-control form-control-lg" placeholder="Email Address" name="email" #email="ngModel" [(ngModel)]="service.formData.email" >
+            <a href="" type="button" class="btn btn-primary" style="height: 50px; width: 200px; margin: 3px;">Login</a>
+        </div>
+    </div>
+</form>
+</div>

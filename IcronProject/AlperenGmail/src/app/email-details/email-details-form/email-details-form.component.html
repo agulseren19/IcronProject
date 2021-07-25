@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mail</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/d4404f8e9b.js" crossorigin="anonymous"></script>
+
+<style>
+HTML {
+    height: 100%;
+}
+BODY {
+    position: relative;
+    height: 100%;
+}
+HEADER {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    padding-left: 150px;
+    padding-top: 20px;
+}
+
+</style>
+
+
+
+
+
+</head>
+<body>
+
+<form #form="ngForm">
+
+  
+  <nav class="navbar fixed-top">
+    <header>
+      <div id="searchBar">
+        <div class="input-group w-50">
+          <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
+          <button type="button" class="btn btn-primary">search</button>
+        </div>
+      </div>
+    </header>>
+  </nav>
+
+
+  
+  
+
+  <div  id="selectBlock" style="padding-top: 140px;">
+    <nav>
+      <div  class="btn-group-vertical border border rounded m-4" id="box1">
+      <a href="" class="btn btn-light"><fa-icon [icon]="faPenNib"></fa-icon>Compose</a>
+      <a href="" class="btn btn-primary"><fa-icon [icon]="faEnvelope"></fa-icon> Inbox</a>
+      <a href="" class="btn btn-info"><fa-icon [icon]="faStar"></fa-icon> Starred</a>
+      <a href="" class="btn btn-success"><fa-icon [icon]="faPaperPlane"></fa-icon> Sent</a>
+      <a href="" class="btn btn-warning"><fa-icon [icon]="faBug"></fa-icon> Spam</a>
+      <a href="" class="btn btn-danger"><fa-icon [icon]="faTrash"></fa-icon> Trash</a>
+      <a href="" class="btn btn-light"><fa-icon [icon]="faBed"></fa-icon> Snoozed</a>
+      <a href="" class="btn btn-secondary"><fa-icon [icon]="faArchive"></fa-icon> Drafts</a>
+    </div>
+    </nav>
+  </div>
+
+
+</form>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

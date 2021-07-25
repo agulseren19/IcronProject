@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-4">
+        <app-email-details-form></app-email-details-form>
+    </div>
+    <div class="col-md-8" style="padding-top: 140px;">
+          <table class="table">
+              <thead class="thead-light">
+                  <tr>
+                      <th>Sender ID</th>
+                      <th>Email Content</th>
+                      <th>Time</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let pd of service.list">
+                      <td><fa-icon [icon]="faStar"></fa-icon>{{pd.senderID}}</td>
+                      <td>{{pd.emailContent}}</td>
+                      <td>{{pd.timeValue}}</td>
+                  </tr>
+              </tbody>
+          </table>  
+    </div>
+
+</div>
+
+
+
