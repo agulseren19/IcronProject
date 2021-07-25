@@ -38,15 +38,15 @@
     "@angular-devkit/build-angular": "~12.1.0",
     "@angular/cli": "~12.1.0",
     "@angular/compiler-cli": "~12.1.0",
-    "@electron-forge/cli": "^6.0.0-beta.57",
-    "@electron-forge/maker-deb": "^6.0.0-beta.57",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.57",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.57",
-    "@electron-forge/maker-zip": "^6.0.0-beta.57",
+    "@electron-forge/cli": "^6.0.0-beta.58",
+    "@electron-forge/maker-deb": "^6.0.0-beta.58",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.58",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.58",
+    "@electron-forge/maker-zip": "^6.0.0-beta.58",
+    "@electron-forge/publisher-github": "^6.0.0-beta.58",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "electron": "^13.1.6",
-    "electron-winstaller": "^5.0.0",
     "jasmine-core": "~3.7.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -69,7 +69,8 @@
         {
           "name": "@electron-forge/maker-zip",
           "platforms": [
-            "darwin","win32"
+            "darwin",
+            "win32"
           ]
         },
         {
@@ -80,8 +81,18 @@
           "name": "@electron-forge/maker-rpm",
           "config": {}
         }
+      ],
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "config": {
+            "repository": {
+              "owner": "agulseren19",
+              "name": "IcronProject"
+            }
+          }
+        }
       ]
-
     }
   }
 }
