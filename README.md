@@ -15,6 +15,7 @@ dotnet run
 <br><br>
 For gmailApp: <br>
 cd ./gmailApp <br>
+npm install --save-dev @angular-devkit/build-angular <br>
 npm run start:electron
 <br><br>
-For distributable app: click on .exe file
+For distributable app: v1.0.0
