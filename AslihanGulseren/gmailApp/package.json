@@ -17,6 +17,7 @@
     "make": "electron-forge make"
   },
   "private": true,
+  "keywords": [],
   "author": {
     "name": "github_agulseren19",
     "email": "agulseren19@ku.edu.tr"
@@ -62,6 +63,7 @@
     "source-map": "^0.7.3",
     "typescript": "~4.3.2"
   },
+  "license": "MIT",
   "config": {
     "forge": {
       "packagerConfig": {},
