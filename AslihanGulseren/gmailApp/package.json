@@ -1,7 +1,9 @@
 {
   "name": "gmail-app",
+  "productName": "gmail-app",
   "version": "1.0.0",
   "main": "main.js",
+  "description": "My Electron application description",
   "scripts": {
     "ng": "ng",
     "start": "electron-forge start",
