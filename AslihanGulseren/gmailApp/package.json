@@ -15,6 +15,10 @@
     "make": "electron-forge make"
   },
   "private": true,
+  "author": {
+    "name": "github_agulseren19",
+    "email": "agulseren19@ku.edu.tr"
+  },
   "dependencies": {
     "@angular/animations": "~12.1.0",
     "@angular/common": "~12.1.0",
