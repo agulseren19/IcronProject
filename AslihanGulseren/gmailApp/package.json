@@ -14,7 +14,8 @@
     "e2e": "ng e2e",
     "start:electron": "ng build --base-href ./ && electron .",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
   },
   "private": true,
   "keywords": [],
