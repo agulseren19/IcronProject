@@ -9,11 +9,13 @@ ICRON SUMMER 2021 INTERSHIP PROJECT
 
 # Run
 For WebApi: <br>
+cd ./AslihanGulseren <br>
 cd ./mailapi <br>
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 5.0.7 <br>
 dotnet run
 <br><br>
 For gmailApp: <br>
+cd ./AslihanGulseren <br>
 cd ./gmailApp <br>
 npm install --save-dev @angular-devkit/build-angular <br>
 npm run start:electron
